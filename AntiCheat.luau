@@ -285,13 +285,13 @@ function SpeedDetection:Check(tracker)
 
 	local velocity = tracker:GetVelocity()
 
-	-- 걳 BYPASS: Skip if in vertical motion (falling or rising)
+	-- 혖혳 BYPASS: Skip if in vertical motion (falling or rising)
 	if IsVerticalMotion(velocity, 8) then
 		Utility:DebugLog("Speed check bypassed - vertical motion: " .. velocity.Y)
 		return false
 	end
 
-	-- 걳 BYPASS: Skip if in air (not grounded)
+	-- 혖혳 BYPASS: Skip if in air (not grounded)
 	if not tracker.isGrounded then
 		return false
 	end
@@ -324,13 +324,13 @@ function JumpDetection:Check(tracker)
 
 	local velocity = tracker:GetVelocity()
 
-	-- 걳 BYPASS: Skip if in vertical motion (falling or rising)
+	-- 혖혳 BYPASS: Skip if in vertical motion (falling or rising)
 	if IsVerticalMotion(velocity, 5) then
 		Utility:DebugLog("Jump check bypassed - vertical motion: " .. velocity.Y)
 		return false
 	end
 
-	-- 걳 BYPASS: Skip if in air
+	-- 혖혳 BYPASS: Skip if in air
 	if not tracker.isGrounded then
 		return false
 	end
@@ -348,7 +348,7 @@ function FlyDetection:Check(tracker)
 
 	local velocity = tracker:GetVelocity()
 
-	-- 걳 BYPASS: Skip if in vertical motion (falling or rising)
+	-- 혖혳 BYPASS: Skip if in vertical motion (falling or rising)
 	if IsVerticalMotion(velocity, 5) then
 		Utility:DebugLog("Fly check bypassed - vertical motion: " .. velocity.Y)
 		return false
@@ -363,7 +363,7 @@ function FlyDetection:Check(tracker)
 		if tracker.airTime > Config.TOLERANCES.AIR_TIME_MAX then
 			local horizontalSpeed = Vector3.new(velocity.X, 0, velocity.Z).Magnitude
 
-			-- 걳 MODIFIED: Only flag if moving horizontally AND not falling/rising
+			-- 혖혳 MODIFIED: Only flag if moving horizontally AND not falling/rising
 			-- This means: horizontal movement + no vertical movement = suspicious
 			if horizontalSpeed > 5 and math.abs(velocity.Y) < 1 then
 				-- Moving horizontally but not falling/rising = fly hack
@@ -409,7 +409,7 @@ function NoClipDetection:Check(tracker)
 
 	local velocity = tracker:GetVelocity()
 
-	-- 걳 BYPASS: Skip if in vertical motion (falling or rising through platforms)
+	-- 혖혳 BYPASS: Skip if in vertical motion (falling or rising through platforms)
 	if IsVerticalMotion(velocity, 8) then
 		Utility:DebugLog("NoClip check bypassed - vertical motion: " .. velocity.Y)
 		return false
@@ -418,7 +418,7 @@ function NoClipDetection:Check(tracker)
 	local currentPos = tracker.positions[1].position
 	local previousPos = tracker.positions[2].position
 
-	-- 걳 Calculate horizontal distance only
+	-- 혖혳 Calculate horizontal distance only
 	local horizontalDistance = Vector3.new(currentPos.X - previousPos.X, 0, currentPos.Z - previousPos.Z).Magnitude
 	local verticalDistance = math.abs(currentPos.Y - previousPos.Y)
 
@@ -498,7 +498,7 @@ function TeleportDetection:Check(tracker)
 
 	local velocity = tracker:GetVelocity()
 
-	-- 걳 BYPASS: Skip if in vertical motion (falling or rising)
+	-- 혖혳 BYPASS: Skip if in vertical motion (falling or rising)
 	if IsVerticalMotion(velocity, 10) then
 		Utility:DebugLog("Teleport check bypassed - vertical motion: " .. velocity.Y)
 		return false
@@ -510,7 +510,7 @@ function TeleportDetection:Check(tracker)
 
 	if deltaTime <= 0 then return false end
 
-	-- 걳 Calculate HORIZONTAL distance only (ignore vertical)
+	-- 혖혳 Calculate HORIZONTAL distance only (ignore vertical)
 	local horizontalDistance = Vector3.new(currentPos.X - previousPos.X, 0, currentPos.Z - previousPos.Z).Magnitude
 	local verticalDistance = math.abs(currentPos.Y - previousPos.Y)
 
