@@ -1,1 +1,51 @@
+{
+  "GamePhysics": {
+    "WALK_SPEED": 16,
+    "JUMP_POWER": 89.6,
+    "GRAVITY": 196.2
+  },
 
+  "TOLERANCES": {
+    "SPEED_MARGIN": 1,
+    "JUMP_HEIGHT_MARGIN": 5,
+    "VERTICAL_SPEED_MARGIN": 5,
+    "TELEPORT_DISTANCE": 100,
+    "AIR_TIME_MAX": 0,
+    "NO_CLIP_RAY_MARGIN": 2
+  },
+
+  "THRESHOLDS": {
+    "SPEED": 1,
+    "JUMP": 1,
+    "FLY": 1,
+    "NOCLIP": 1,
+    "TELEPORT": 1,
+    "PHYSICS": 1,
+    "HUMANOID": 1,
+    "ATTRIBUTE": 1,
+    "ALLKILL": 1
+  },
+
+  "PUNISHMENT": {
+    "MAX_WARNINGS": 1,
+    "KICK_ENABLED": true,
+    "BAN_ENABLED": false,
+    "RESET_POSITION": true,
+    "LOG_ENABLED": true
+  },
+
+  "ANTI_BYPASS": {
+    "SANITY_CHECK_INTERVAL": 1,
+    "DETECT_REMOTE_SPY": true,
+    "DETECT_NAME_SPOOF": true,
+    "MAX_PING_COMPENSATION": 0.5
+  },
+
+  "PERFORMANCE": {
+    "UPDATE_RATE": 0.1,
+    "POSITION_HISTORY_SIZE": 10,
+    "OPTIMIZE_DISTANCE": 500
+  },
+
+  "DEBUG_MODE": false
+}
